@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text
+  Text,
+  TextInput,
 } from 'react-native';
 
-class Main extends Component {
+class Login extends Component {
   render() {
     return (
-      <Text style={styles.main}> CLUBBY under construction </Text>
+      <View style={styles.main}>
+
+        <Text> CLUBBY </Text>
+
+      </View>
     );
   }
 }
 
 const styles = {
   main: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   }
 }
 
-export default Main;
+export default Login;

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 // navigation
-import Router from './src/Router'
-// import components
-import Main from './src/components/Main'
+import Router from './app/Router'
 
 export default class App extends Component {
   render() {
