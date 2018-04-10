@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 // import components
-import Login from './components/Login'
+import Login from './components/auth/Login'
 
 const RouterComponent = () => {
   return (
@@ -9,7 +9,7 @@ const RouterComponent = () => {
       <Scene key="root">
 
         <Scene key="Login" component={Login} title="Login" />
-        
+
       </Scene>
     </Router>
   )
