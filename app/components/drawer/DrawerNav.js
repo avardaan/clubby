@@ -7,6 +7,7 @@ import {
 } from 'react-native'
 import { Button } from 'react-native-elements'
 import { height, width, totalSize } from 'react-native-dimension'
+import { Actions } from 'react-native-router-flux'
 
 import OpenWeb from './OpenWeb'
 import Suno from './Suno'
@@ -44,6 +45,12 @@ class DrawerNav extends Component {
     return (
       <SafeAreaView style={styles.main}>
         {this.renderDrawer()}
+        <Button
+          buttonStyle={{ backgroundColor: 'white' }}
+          textStyle={{ color:'black', fontSize: 20 }}
+          title="Logout"
+          onPress={() => Actions.replace('Auth')}
+        />
       </SafeAreaView>
     );
   }

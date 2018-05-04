@@ -8,7 +8,7 @@ class Documents extends Component {
   render() {
     return (
       <View style={styles.main}>
-        <Text> Docs </Text>
+        <Text style={{ fontSize:20 }}> Google Drive Integration coming soon! </Text>
       </View>
     );
   }
@@ -17,6 +17,8 @@ class Documents extends Component {
 const styles = {
   main: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 }
 

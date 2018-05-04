@@ -13,11 +13,6 @@ import { Actions } from 'react-native-router-flux'
 
 class Login extends Component {
 
-  // to make testing faster
-  componentWillMount() {
-    this.props.loginUser('test@test.com', 'password')
-  }
-
   onLoginPress = () => {
     const { email, password } = this.props
     this.props.loginUser(email, password)
@@ -32,7 +27,7 @@ class Login extends Component {
         </View>
 
 
-        <View>
+        <View style={styles.textContainer}>
           <TextInput
             style={styles.topTextInput}
             value={this.props.email}
@@ -86,8 +81,11 @@ const styles = {
     width: width(90),
     height: height(10),
   },
+  textContainer: {
+    marginVertical: 20
+  },
   topTextInput: {
-    height: height(5.5),
+    height: height(7.5),
     width: width(80),
     borderColor: 'black',
     borderWidth: 1,
@@ -96,7 +94,7 @@ const styles = {
     textAlign:'center',
   },
   bottomTextInput: {
-    height: height(5.5),
+    height: height(7.5),
     width: width(80),
     borderColor: 'black',
     borderWidth: 1,
@@ -109,12 +107,13 @@ const styles = {
     alignItems: 'center'
   },
   loginButton: {
-    backgroundColor:'blue',
+    backgroundColor:'#65ce42',
     borderRadius:10,
-    width:width(50)
+    width:width(50),
+    marginBottom: 10
   },
   noAccountButton: {
-    backgroundColor:'green',
+    backgroundColor:'orange',
     borderRadius:10,
     width:width(60)
   },

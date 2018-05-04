@@ -29,7 +29,7 @@ class Signup extends Component {
         </View>
 
 
-        <View>
+        <View style={styles.textContainer}>
           <TextInput
             style={styles.topTextInput}
             value={this.props.name}
@@ -93,8 +93,11 @@ const styles = {
     width: width(90),
     height: height(10),
   },
+  textContainer: {
+    marginVertical: 20
+  },
   topTextInput: {
-    height: height(5.5),
+    height: height(7.5),
     width: width(80),
     borderColor: 'black',
     borderWidth: 1,
@@ -103,14 +106,14 @@ const styles = {
     textAlign:'center',
   },
   middleTextInput: {
-    height: height(5.5),
+    height: height(7.5),
     width: width(80),
     borderColor: 'black',
     borderWidth: 1,
     textAlign:'center',
   },
   bottomTextInput: {
-    height: height(5.5),
+    height: height(7.5),
     width: width(80),
     borderColor: 'black',
     borderWidth: 1,
@@ -123,12 +126,13 @@ const styles = {
     alignItems: 'center'
   },
   signupButton: {
-    backgroundColor:'blue',
+    backgroundColor:'#4eb7f9',
     borderRadius:10,
-    width:width(50)
+    width:width(50),
+    marginBottom: 10,
   },
   haveAccountButton: {
-    backgroundColor:'green',
+    backgroundColor:'#65ce42',
     borderRadius:10,
     width:width(60)
   },
