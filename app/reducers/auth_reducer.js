@@ -1,6 +1,9 @@
 import {
   EMAIL_CHANGED,
   PASSWORD_CHANGED,
+  NAME_CHANGED,
+  CREATE_USER,
+  LOGIN_USER
 } from '../actions/types'
 
 // user in this object is vanilla firebase user object
@@ -18,6 +21,15 @@ export default (state=INITIAL_STATE, action) => {
 
     case PASSWORD_CHANGED:
       return { ...state, password: action.payload }
+
+    case NAME_CHANGED:
+      return { ...state, name: action.payload }
+
+    case CREATE_USER:
+      return { ...state, user: action.payload }
+
+    case LOGIN_USER:
+      return { ...state, user: action.payload }
 
     default: return state
 

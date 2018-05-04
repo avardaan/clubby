@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   View,
   Text,
@@ -8,14 +8,16 @@ import {
 import { width, height, totalSize } from 'react-native-dimension'
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
-import { emailChanged, passwordChanged, loginUser } from '../../actions'
+import { emailChanged, passwordChanged, nameChanged, createUser } from '../../actions'
 import { Actions } from 'react-native-router-flux'
 
-class Login extends Component {
+class Signup extends Component {
 
-  onLoginPress = () => {
-    const { email, password } = this.props
-    this.props.loginUser(email, password)
+  onSignupPress = () => {
+    // get typed values from props
+    const { name, email, password } = this.props
+    // initiate createUser action
+    this.props.createUser(name, email, password)
   }
 
   render() {
@@ -30,6 +32,16 @@ class Login extends Component {
         <View>
           <TextInput
             style={styles.topTextInput}
+            value={this.props.name}
+            onChangeText={(text) => this.props.nameChanged(text)}
+            autoCorrect={false}
+            autoCapitalize={'words'}
+            placeholder={'Full Name'}
+            underlineColorAndroid = 'rgba(0, 0, 0, 0)'
+          />
+
+          <TextInput
+            style={styles.middleTextInput}
             value={this.props.email}
             onChangeText={(text) => this.props.emailChanged(text)}
             autoCorrect={false}
@@ -52,17 +64,17 @@ class Login extends Component {
 
         <View style={styles.buttonContainer}>
           <Button
-            title='Login'
+            title='Signup'
             raised
-            buttonStyle={styles.loginButton}
-            onPress={this.onLoginPress}
+            buttonStyle={styles.signupButton}
+            onPress={this.onSignupPress}
           />
 
           <Button
-            title="Don't Have An Account?"
+            title="Have An Account?"
             raised
-            buttonStyle={styles.noAccountButton}
-            onPress={() => Actions.replace('Signup')}
+            buttonStyle={styles.haveAccountButton}
+            onPress={() => Actions.replace('Login')}
           />
         </View>
 
@@ -90,6 +102,13 @@ const styles = {
     borderTopRightRadius: 8,
     textAlign:'center',
   },
+  middleTextInput: {
+    height: height(5.5),
+    width: width(80),
+    borderColor: 'black',
+    borderWidth: 1,
+    textAlign:'center',
+  },
   bottomTextInput: {
     height: height(5.5),
     width: width(80),
@@ -103,24 +122,25 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center'
   },
-  loginButton: {
+  signupButton: {
     backgroundColor:'blue',
     borderRadius:10,
     width:width(50)
   },
-  noAccountButton: {
+  haveAccountButton: {
     backgroundColor:'green',
     borderRadius:10,
     width:width(60)
   },
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   // returned object gets sent to props of this Component
   return {
+    name: state.auth.name,
     email: state.auth.email,
-    password: state.auth.password
+    password: state.auth.password,
   }
 }
 
-export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(Login)
+export default connect(mapStateToProps, { nameChanged, emailChanged, passwordChanged, createUser })(Signup);
