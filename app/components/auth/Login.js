@@ -13,6 +13,11 @@ import { Actions } from 'react-native-router-flux'
 
 class Login extends Component {
 
+  // to make testing faster
+  // componentWillMount() {
+  //   this.props.loginUser('test@test.com', 'password')
+  // }
+
   onLoginPress = () => {
     const { email, password } = this.props
     this.props.loginUser(email, password)
@@ -119,7 +124,7 @@ const mapStateToProps = (state) => {
   // returned object gets sent to props of this Component
   return {
     email: state.auth.email,
-    password: state.auth.password
+    password: state.auth.password,
   }
 }
 
