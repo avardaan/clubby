@@ -6,10 +6,18 @@ import {
 import CameraRollPicker from 'react-native-camera-roll-picker'
 
 class Media extends Component {
+
+  // CameraRollPicker callback
+  getSelectedImages = (selectedImageArray, currentImage) => {
+
+  }
+
   render() {
     return (
       <View style={styles.main}>
-        <Text> Media </Text>
+      <CameraRollPicker
+        callback={this.getSelectedImages}
+      />
       </View>
     );
   }

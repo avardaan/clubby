@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {
   View,
   Text
-} from 'react-native';
+} from 'react-native'
 
 class Documents extends Component {
   render() {
@@ -11,6 +11,12 @@ class Documents extends Component {
         <Text> Docs </Text>
       </View>
     );
+  }
+}
+
+const styles = {
+  main: {
+    flex: 1,
   }
 }
 
